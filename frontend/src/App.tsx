@@ -1,30 +1,19 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
+import { Button } from "@/components/ui/button";
+import { useGetTest, useSetTest, useTest } from "@/store/testStore";
+import { useGetPost } from "@/hooks/post/GET/useGetPost";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const test = useTest();
+  const setTest = useSetTest();
+  const getTest = useGetTest();
+
+  const { data } = useGetPost();
+  console.log(data);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>test</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>test</p>
-      </div>
-      <p className="read-the-docs">test</p>
-    </>
+    <div className="flex min-h-svh flex-col items-center justify-center">
+      <Button>{test}</Button>
+    </div>
   );
 }
 
