@@ -1,13 +1,10 @@
-import { Button } from "@/components/ui/button";
 import ModalProvider from "@/provider/modalProvider";
-import { useIsModal, useOpenModal } from "@/store/modalStore";
+import RootRouter from "@/route";
 
 function App() {
-  const openModal = useOpenModal();
-
   return (
     <ModalProvider>
-      <Button onClick={() => openModal(<div>asdf</div>)}>1</Button>
+      <RootRouter />
     </ModalProvider>
   );
 }
